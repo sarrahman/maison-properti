@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#logoText {
+  font-family: "Yeseva One", cursive;
+  font-size: 1.8rem;
+  text-align: center;
+}

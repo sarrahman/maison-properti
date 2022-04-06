@@ -6,7 +6,7 @@ const ButtonChatWa = (props) => {
       style={{
         textDecoration: "none",
       }}
-      href={`https://api.whatsapp.com/send?phone=${props.contactSeller}&text=Hallo admin, saya ingin menanyakan iklan ${props.productName} di kingandbos.com`}
+      href={`https://api.whatsapp.com/send?phone=${props.contactSeller}&text=Hallo admin, saya ingin menanyakan iklan ${props.productName} di maison.com`}
     >
       <Button variant="contained" color="primary" fullWidth>
         Tanya Produk

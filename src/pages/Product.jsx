@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { getProduct } from "../configs/redux/Functions/Products";
 import { useEffect, useState } from "react";
 import DeskripsiProduct from "../sections/App/Product/DeskripsiProduct";
-import PengirimanDetail from "../sections/App/Product/Pengiriman";
+import Fasilitas from "../sections/App/Product/Fasilitas";
 import Copyright from "../components/Footer";
 import ButtonChatWa from "../components/ButtonChatWa";
 import CardProfile from "../sections/App/Product/CardProfile";
@@ -29,14 +29,17 @@ const Product = (props) => {
         <Grid item xs={12} md={6}>
           <CardDetailProduct data={product} />
           <DeskripsiProduct description={product.description} />
-          <ButtonChatWa contactSeller={contactSeller} productName={product.name} />
         </Grid>
         <Grid item xs={12} md={6}>
+          <Fasilitas data={product} />
           <CardProfile
             uid={product.uid}
             handleContact={(phone) => setContactSeller(phone)}
           />
-          <PengirimanDetail />
+          <ButtonChatWa
+            contactSeller={contactSeller}
+            productName={product.judul}
+          />
         </Grid>
       </Grid>
       <Copyright />

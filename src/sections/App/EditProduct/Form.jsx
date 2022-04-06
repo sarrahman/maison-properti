@@ -15,6 +15,7 @@ import ButtonLoading from "../../../components/buttonLoading";
 
 const sertification = ["", "SHM", "HGB", "Lainnya"];
 const category = ["", "dijual", "disewakan"];
+const fasilitas = ["Garasi", "Kebun", "Kolam Renang", "Gym", "Wifi", "AC"];
 
 export default function FormProduct(props) {
   const [fasiliti, setFasiliti] = useState({});
@@ -246,21 +247,13 @@ export default function FormProduct(props) {
             <Typography variant="h6" gutterBottom>
               Fasilitas
             </Typography>
-            <FormControlLabel
-              control={<Checkbox onChange={handleChange} />}
-              name="garasi"
-              label="Garasi"
-            />
-            <FormControlLabel
-              control={<Checkbox onChange={handleChange} />}
-              label="Kolam Renang"
-              name="Kolam Renang"
-            />
-            <FormControlLabel
-              control={<Checkbox onChange={handleChange} />}
-              label="Lapangan"
-              name="Lapangan"
-            />
+            {fasilitas.map((f, index) => (
+              <FormControlLabel
+                control={<Checkbox onChange={handleChange} />}
+                name={f}
+                label={f}
+              />
+            ))}
           </FormGroup>
         </Grid>
         <Grid item xs={12}>

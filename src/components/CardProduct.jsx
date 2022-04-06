@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 import { fCurrency } from "../utils/formatNumber";
 import Label from "./Label";
 import { useNavigate } from "react-router-dom";
-import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
+import AddLocationAltIcon from "@mui/icons-material/AddLocationAlt";
 
 const ProductImgStyle = styled("img")({
   top: 0,
@@ -36,14 +36,22 @@ export default function CardProduct(props) {
         <ProductImgStyle alt={props.name} src={props.image} />
       </Box>
 
-      <Stack spacing={2} sx={{ p: 1, }}>
-        <Typography variant="h6" sx={{cursor: 'pointer'}} noWrap>
+      <Stack spacing={2} sx={{ p: 1 }}>
+        <Typography variant="h6" sx={{ cursor: "pointer" }} noWrap>
           {props.name}
         </Typography>
         <Typography variant="subtitle1" noWrap>
-         <AddLocationAltIcon /> {props.location}
+          <AddLocationAltIcon /> {props.location}
         </Typography>
-        <Typography variant="subtitle1">Rp {fCurrency(props.price)}</Typography>
+        {props.category === "dijual" ? (
+          <Typography variant="subtitle1">
+            Rp {fCurrency(props.price)}
+          </Typography>
+        ) : (
+          <Typography variant="subtitle1">
+            Rp {fCurrency(props.price)} /Tahun
+          </Typography>
+        )}
       </Stack>
     </Card>
   );

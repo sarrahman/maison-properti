@@ -17,7 +17,7 @@ function CardProfile(props) {
     if (uid) {
       props.getUser(uid).then((res) => {
         setUser(res.data);
-        props.handleContact(res.data.phone);
+        props.handleContact(res.data.contact.phone);
       });
     }
   }, [uid, props]);
@@ -37,7 +37,7 @@ function CardProfile(props) {
                 color="text.secondary"
                 component="div"
               >
-               {user.phone}
+               {user.contact && user.contact.phone}
               </Typography>
             </CardContent>
           </Box>

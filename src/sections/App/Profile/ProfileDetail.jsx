@@ -20,7 +20,7 @@ const ProfileDetail = (props) => {
   };
 
   return (
-    <Card sx={{ p: 2, m: 1, height:"170px" }}>
+    <Card sx={{ p: 2, m: 1, height:"180px" }}>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <Typography variant="h6">Profile Detail</Typography>
         {handleEdit()}

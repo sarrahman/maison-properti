@@ -21,6 +21,7 @@ import AutocompleteComp from "../../../components/AutoComplete";
 
 const sertification = ["", "SHM", "HGB", "Lainnya"];
 const category = ["", "dijual", "disewakan"];
+const fasilitas = ["Garasi", "Kebun", "Kolam Renang", "Gym", "Wifi", "AC"];
 
 const AddProductDashboard = (props) => {
   const navigate = useNavigate();
@@ -193,21 +194,13 @@ const AddProductDashboard = (props) => {
               <Typography variant="h6" gutterBottom>
                 Fasilitas
               </Typography>
-              <FormControlLabel
-                control={<Checkbox onChange={handleChange} />}
-                label="Garasi"
-                name="Garasi"
-              />
-              <FormControlLabel
-                control={<Checkbox onChange={handleChange} />}
-                label="Kolam Renang"
-                name="Kolam Renang"
-              />
-              <FormControlLabel
-                control={<Checkbox onChange={handleChange} />}
-                label="Lapangan"
-                name="Lapangan"
-              />
+              {fasilitas.map((f, i) => (
+                <FormControlLabel
+                  control={<Checkbox onChange={handleChange} />}
+                  label={f}
+                  name={f}
+                />
+              ))}
             </FormGroup>
             <TextField
               required

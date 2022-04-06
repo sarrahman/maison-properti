@@ -29,7 +29,7 @@ const Profile = (props) => {
       <AppBar />
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6} md={6} >
-          <CardProfile username={user.username} photoUrl={user.photoUrl} />
+          <CardProfile nama={user.nama} username={user.username} about={user.about} photoUrl={user.photoUrl} />
         </Grid>
         <Grid item xs={12} sm={6} md={6}>
           <ProfileDetail
@@ -57,6 +57,7 @@ const Profile = (props) => {
                 category={product.category}
                 price={product.price}
                 updatedAt={product.updatedAt}
+                location={product.location}
               />
             </Grid>
           ))}

@@ -34,7 +34,7 @@ const Me = (props) => {
       <AppBar />
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6} md={6}>
-          <CardProfile username={user.username} photoUrl={user.photoUrl} />
+          <CardProfile nama={user.nama} username={user.username} about={user.about} photoUrl={user.photoUrl} />
         </Grid>
         <Grid item xs={12} sm={6} md={6}>
           <ProfileDetail
@@ -50,7 +50,12 @@ const Me = (props) => {
           />
         </Grid>
       </Grid>
-        <BecomeSeller id={uid} phone={user.contact && user.contact.phone} city={user.address && user.address.city} title={"Dashboard"} />
+      <BecomeSeller
+        id={uid}
+        phone={user.contact && user.contact.phone}
+        city={user.address && user.address.city}
+        title={"Dashboard"}
+      />
       <Box
         sx={{
           m: { xs: 1, md: 2 },
@@ -67,6 +72,7 @@ const Me = (props) => {
                 category={product.category}
                 price={product.price}
                 updatedAt={product.updatedAt}
+                location={product.location}
               />
             </Grid>
           ))}

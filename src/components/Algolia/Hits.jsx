@@ -30,6 +30,7 @@ export function Hits() {
             category={product.category}
             price={product.price}
             updatedAt={product.updatedAt}
+            location={product.location}
           />
         </Grid> 
       ))}

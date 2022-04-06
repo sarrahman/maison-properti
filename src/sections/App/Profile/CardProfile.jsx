@@ -9,24 +9,56 @@ function CardProfile(props) {
   return (
     <Card
       sx={{
-        p: 2,
-        height:"170px",
-        m: 1,
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: { xs: "center" },
+        p: 2,
+        height: "180px",
+        m: 1,
       }}
     >
-      <Box sx={{ mt: 1 }}>
-        <Box sx={{
+      <Box
+        sx={{
           display: "flex",
-          justifyContent: "center",
-        }}>
-        <Avatar sx={{ width: "90px",bgcolor: lightBlue[600], height: "90px" }} src={props.photoUrl} />
+          flexDirection: { xs: "column", md: "row" },
+          justifyContent: { xs: "center", md: "space-around" },
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            mr: {md: 4}
+          }}
+        >
+          <Avatar
+            sx={{ width: "90px", bgcolor: lightBlue[600], height: "90px" }}
+            src={props.photoUrl}
+          />
         </Box>
-        <Typography variant="h5" component="h2">
-          {props.username}
-        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <Typography variant="h5" component="h2" gutterBottom>
+              {props.nama}
+            </Typography>
+            <Typography variant="subtitle1" color="secondary" gutterBottom>
+              @{props.username}
+            </Typography>
+            <Typography variant="body1">
+              {props.about || "pengguna Maison.com"}
+            </Typography>
+          </Box>
+        </Box>
       </Box>
     </Card>
   );

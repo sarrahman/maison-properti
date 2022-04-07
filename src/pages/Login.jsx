@@ -12,13 +12,10 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Copyright from "../components/Footer";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Chip, Collapse, Divider } from "@mui/material";
+import { Collapse } from "@mui/material";
 import AlertComp from "../components/Alert";
 import AppBar from "../components/AppBar";
-import {
-  LoginWithEmail,
-  loginWithGoogle,
-} from "../configs/redux/Functions/Auth";
+import { LoginWithEmail } from "../configs/redux/Functions/Auth";
 
 const theme = createTheme();
 
@@ -35,24 +32,6 @@ function Login(props) {
         email: data.get("email"),
         password: data.get("password"),
       })
-      .then((res) => {
-        if (res.status === 200) {
-          setMessage(res.data.message);
-          setStatus(true);
-          setTimeout(() => {
-            navigate("/");
-          }, 1000);
-        }
-      })
-      .catch((err) => {
-        setStatus(false);
-        setMessage(err.response.data.message);
-      });
-  };
-
-  const handleLoginGoogle = () => {
-    props
-      .loginGoogle()
       .then((res) => {
         if (res.status === 200) {
           setMessage(res.data.message);
@@ -90,21 +69,6 @@ function Login(props) {
           <Typography component="h1" variant="h5">
             Masuk
           </Typography>
-          <Button
-            sx={{
-              mb: 2,
-              mt: 2,
-              width: "100%",
-            }}
-            onClick={handleLoginGoogle}
-            variant="contained"
-            color="inherit"
-          >
-            Login with Google
-          </Button>
-          <Divider>
-            <Chip label="atau" />
-          </Divider>
           <Box
             component="form"
             onSubmit={handleSubmit}
@@ -140,8 +104,7 @@ function Login(props) {
               Sign In
             </Button>
             <Grid container>
-              <Grid item xs>
-              </Grid>
+              <Grid item xs></Grid>
               <Grid item>
                 <Button onClick={() => navigate("/register")} variant="text">
                   Belum Punya Akun? Daftar
@@ -162,7 +125,6 @@ const reduxState = (state) => ({
 
 const reduxActions = (dispatch) => ({
   loginEmail: (data) => dispatch(LoginWithEmail(data)),
-  loginGoogle: () => dispatch(loginWithGoogle()),
 });
 
 export default connect(reduxState, reduxActions)(Login);

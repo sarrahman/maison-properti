@@ -14,11 +14,8 @@ import Collapse from "@mui/material/Collapse";
 import AlertComp from "../components/Alert";
 import Copyright from "../components/Footer";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { Avatar, Chip, Divider } from "@mui/material";
-import {
-  RegisterWithEmail,
-  registerWithGoogle,
-} from "../configs/redux/Functions/Auth";
+import { Avatar } from "@mui/material";
+import { RegisterWithEmail } from "../configs/redux/Functions/Auth";
 import AppBar from "../components/AppBar";
 
 const theme = createTheme();
@@ -52,24 +49,6 @@ function Register(props) {
       });
   };
 
-  const handleRegisterGoogle = () => {
-    props
-      .registerGoogle()
-      .then((res) => {
-        if (res.status === 201) {
-          setMessage(res.data.message);
-          setStatus(true);
-          setTimeout(() => {
-            navigate("/");
-          }, 1000);
-        }
-      })
-      .catch((err) => {
-        setStatus(false);
-        setMessage(err.response.data.message);
-      });
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <AppBar />
@@ -92,21 +71,6 @@ function Register(props) {
           <Typography component="h1" variant="h5">
             Daftar
           </Typography>
-          <Button
-          sx={{
-            mb: 2, 
-            mt: 2,
-            width: "100%",
-          }}
-            onClick={handleRegisterGoogle}
-            variant="contained"
-            color="inherit"
-          >
-            Register with Google
-          </Button>
-          <Divider>
-            <Chip label="atau" />
-          </Divider>
           <Box
             component="form"
             noValidate
@@ -176,7 +140,6 @@ const reduxState = (state) => ({
 
 const reduxActions = (dispatch) => ({
   registerEmail: (data) => dispatch(RegisterWithEmail(data)),
-  registerGoogle: () => dispatch(registerWithGoogle()),
 });
 
 export default connect(reduxState, reduxActions)(Register);

@@ -51,11 +51,11 @@ function CardProfile(props) {
             <Typography variant="h5" component="h2" gutterBottom>
               {props.nama}
             </Typography>
-            <Typography variant="subtitle1" color="secondary" gutterBottom>
+            <Typography variant="subtitle1" color="#555" gutterBottom>
               @{props.username}
             </Typography>
-            <Typography variant="body1">
-              {props.about || "pengguna Maison.com"}
+            <Typography variant="body1" color="#333">
+              {props.about || "Tidak ada deskripsi"}
             </Typography>
           </Box>
         </Box>

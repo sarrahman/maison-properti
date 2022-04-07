@@ -1,16 +1,20 @@
 import algoliasearch from "algoliasearch/lite";
 import { InstantSearch } from "react-instantsearch-hooks";
 import { SearchBox } from "./SearchBox";
-import { Hits } from './Hits';
+import { Hits } from "./Hits";
 
 const searchClient = algoliasearch(
-  "ZFUR42MZOG",
-  "43ba711c347d6688746e0f6eff32e1dd"
+  process.env.REACT_APP_ALGOLIA_ID,
+  process.env.REACT_APP_ALGOLIA_SEARCH_KEY
 );
 
 function AlgoliaSearch() {
   return (
-    <InstantSearch suppressExperimentalWarning searchClient={searchClient} indexName="all_products">
+    <InstantSearch
+      suppressExperimentalWarning
+      searchClient={searchClient}
+      indexName="all_products"
+    >
       <SearchBox />
       <Hits />
     </InstantSearch>

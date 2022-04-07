@@ -21,7 +21,7 @@ export default function BannerComp() {
             style={{
               borderRadius: "7px",
             }}
-            src="https://ik.imagekit.io/sarrahman/sarrahman__1__cPpuhBMuf.png?ik-sdk-version=javascript-1.4.3&updatedAt=1648564952128"
+            src="https://ik.imagekit.io/sarrahman/maison.com__1__XjO5AIeHK.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649312592012"
             width={"100%"}
             alt="banner"
           />
@@ -31,7 +31,7 @@ export default function BannerComp() {
             style={{
               borderRadius: "7px",
             }}
-            src="https://ik.imagekit.io/sarrahman/sarrahman_wsaNh7W13.png?ik-sdk-version=javascript-1.4.3&updatedAt=1648564952401"
+            src="https://ik.imagekit.io/sarrahman/sarrahman__1__cPpuhBMuf.png?ik-sdk-version=javascript-1.4.3&updatedAt=1648564952128"
             width={"100%"}
             alt="banner"
           />

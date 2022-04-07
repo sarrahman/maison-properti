@@ -1,18 +1,16 @@
 import { useState } from "react";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Copyright from "../components/Footer";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Collapse } from "@mui/material";
+import { CardMedia, Collapse } from "@mui/material";
 import AlertComp from "../components/Alert";
 import AppBar from "../components/AppBar";
 import { LoginWithEmail } from "../configs/redux/Functions/Auth";
@@ -54,15 +52,18 @@ function Login(props) {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 2,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar>
+          <CardMedia
+            component="img"
+            sx={{ width: 200, height: 200 }}
+            src="https://ik.imagekit.io/sarrahman/logo512_L2bb4lgWV.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649303229729"
+            alt="logo"
+          />
           <Collapse in={message !== ""}>
             <AlertComp status={status} text={message} />
           </Collapse>

@@ -17,7 +17,9 @@ import Me from "./pages/Me";
 
 const Router = (props) => {
   useEffect(() => {
-    props.refreshToken();
+    if (props.isLogin) {
+      props.refreshToken();
+    }
   }, [props]);
 
   return (
@@ -46,8 +48,12 @@ const Router = (props) => {
   );
 };
 
+const reduxState = (state) => ({
+  isLogin: state.isLogin,
+});
+
 const reduxAction = (dispatch) => ({
   refreshToken: () => dispatch(refreshToken()),
 });
 
-export default connect(null, reduxAction)(Router);
+export default connect(reduxState, reduxAction)(Router);

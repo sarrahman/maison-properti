@@ -53,7 +53,6 @@ const Me = (props) => {
       <BecomeSeller
         id={uid}
         phone={user.contact && user.contact.phone}
-        city={user.address && user.address.city}
         title={"Dashboard"}
       />
       <Box

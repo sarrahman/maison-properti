@@ -11,9 +11,9 @@ const BecomeSeller = (props) => {
   const [status, setStatus] = React.useState(false);
 
   const handleClick = () => {
-    if (!props.phone && !props.city) {
+    if (props.phone === 62) {
       setStatus(false);
-      setMessage("Silakan isi profil Anda terlebih dahulu!");
+      setMessage("Silakan isi nomor telpon terlebih dahulu!");
     } else {
       props
         .upadateUser({ isSeller: true }, props.id)

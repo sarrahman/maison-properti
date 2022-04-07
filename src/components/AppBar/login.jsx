@@ -48,6 +48,7 @@ const LoginAppBar = (props) => {
             component="div"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             id="logoText"
+            color="primary"
           >
             Maison
           </Typography>
@@ -94,6 +95,7 @@ const LoginAppBar = (props) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
             id="logoText"
+            color="primary"
           >
             Maison
           </Typography>

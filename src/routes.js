@@ -31,18 +31,33 @@ const Router = (props) => {
         <Route path="/product/:id" element={<Product />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/profile" element={<Me />} />
         <Route path="/profile/:uid" element={<Profile />} />
-        <Route path="/profile/edit" element={<EditProfile />} />
-        <Route path="*" element={<NotFound />} />
-
+        <Route
+          path="/profile"
+          element={props.isLogin ? <Me /> : <Navigate to="/404" />}
+        />
+        <Route
+          path="/profile/edit"
+          element={props.isLogin ? <EditProfile /> : <Navigate to="/404" />}
+        />
         {/* private pages */}
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/dashboard"
+          element={props.isLogin ? <Dashboard /> : <Navigate to="/404" />}
+        />
         <Route
           path="/dashboard/product/new"
-          element={<AddProductDashboard />}
+          element={
+            props.isLogin ? <AddProductDashboard /> : <Navigate to="/404" />
+          }
         />
-        <Route path="/dashboard/product/edit/:id" element={<EditProduct />} />
+        <Route
+          path="/dashboard/product/edit/:id"
+          element={props.isLogin ? <EditProduct /> : <Navigate to="/404" />}
+        />
+
+        {/* not found */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

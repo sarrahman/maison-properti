@@ -9,9 +9,10 @@ const BecomeSeller = (props) => {
   const navigate = useNavigate();
   const [message, setMessage] = React.useState("");
   const [status, setStatus] = React.useState(false);
+  const num = props.phone;
 
   const handleClick = () => {
-    if (props.phone === 62) {
+    if (`${num}`.length < 8) {
       setStatus(false);
       setMessage("Silakan isi nomor telpon terlebih dahulu!");
     } else {

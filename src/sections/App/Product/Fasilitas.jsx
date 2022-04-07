@@ -32,21 +32,26 @@ const Fasilitas = (props) => {
         }}
       >
         <Box>
-          <Typography sx={{mt: 1}} variant="body1">
+          <Typography sx={{ mt: 1 }} variant="body1">
             Luas Bangunan: {keterangan.luasBangunan} m<sup>2</sup>
           </Typography>
-          <Typography sx={{mt: 1}} variant="body1">
+          <Typography sx={{ mt: 1 }} variant="body1">
             Luas Tanah: {keterangan.luasTanah} m<sup>2</sup>
           </Typography>
-          <Typography sx={{mt: 1}} variant="body1">
+          <Typography sx={{ mt: 1 }} variant="body1">
             Kamar Tidur: {keterangan.kamarTidur}
           </Typography>
-          <Typography sx={{mt: 1}} variant="body1">
+          <Typography sx={{ mt: 1 }} variant="body1">
             Kamar Mandi: {keterangan.kamarMandi}
           </Typography>
-          <Typography sx={{mt: 1}} variant="body1">
+          <Typography sx={{ mt: 1 }} variant="body1">
             Lantai: {keterangan.lantai} Tingkat
           </Typography>
+          {props.data.category !== "disewakan" ? (
+            <Typography sx={{ mt: 1 }} variant="body1">
+              Sertifikat: {keterangan.sertification}
+            </Typography>
+          ) : null}
         </Box>
         <Box sx={{ display: "flex", flexDirection: "column", mt: 2 }}>
           <Typography variant="h6" sx={{ mb: 1 }}>
@@ -54,7 +59,7 @@ const Fasilitas = (props) => {
           </Typography>
           {dataFasilitas.map((item, index) => {
             return (
-              <Box key={index} sx={{ display: "flex", mt: 1}}>
+              <Box key={index} sx={{ display: "flex", mt: 1 }}>
                 <Box
                   sx={{
                     width: "20px",

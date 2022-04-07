@@ -267,7 +267,7 @@ export default function FormProduct(props) {
             }}
             id="location"
             value={value.location}
-            label="location"
+            label="kota lokasi Iklan"
             fullWidth
             variant="outlined"
           />

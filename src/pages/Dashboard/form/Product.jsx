@@ -206,22 +206,24 @@ const AddProductDashboard = (props) => {
               required
               fullWidth
               name="lokasi"
-              label="lokasi Iklan"
+              label="kota lokasi Iklan"
               type="text"
               margin="normal"
               id="lokasi"
               autoComplete="off"
             />
-            <AutocompleteComp
-              label="sertifikat"
-              nilai={(n) => {
-                setAddition({
-                  ...addition,
-                  sertification: n,
-                });
-              }}
-              options={sertification}
-            />
+            {addition.category !== "disewakan" ? (
+              <AutocompleteComp
+                label="sertifikat"
+                nilai={(n) => {
+                  setAddition({
+                    ...addition,
+                    sertification: n,
+                  });
+                }}
+                options={sertification}
+              />
+            ) : null}
             <TextField
               required
               fullWidth

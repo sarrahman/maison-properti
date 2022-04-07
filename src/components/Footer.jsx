@@ -9,7 +9,7 @@ function Copyright(props) {
       align="center"
       {...props}
     >
-      Created By Sarahman | Copyright © {new Date().getFullYear()}
+      Created By Sarrahman | Copyright © {new Date().getFullYear()}
     </Typography>
   );
 }

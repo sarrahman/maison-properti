@@ -44,11 +44,11 @@ export default function CardProduct(props) {
           <AddLocationAltIcon /> {props.location}
         </Typography>
         {props.category === "dijual" ? (
-          <Typography variant="subtitle1">
+          <Typography variant="subtitle1" noWrap>
             Rp {fCurrency(props.price)}
           </Typography>
         ) : (
-          <Typography variant="subtitle1">
+          <Typography variant="subtitle1" noWrap>
             Rp {fCurrency(props.price)} /Tahun
           </Typography>
         )}

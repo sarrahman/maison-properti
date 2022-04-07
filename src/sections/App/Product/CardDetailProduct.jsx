@@ -79,7 +79,7 @@ export default function CardDetailProduct(props) {
                 style={{
                   marginRight: "10px",
                 }}
-                url={`http://localhost:3001/product/${props.data._id}`}
+                url={`${process.env.REACT_APP_DOMAIN_NAME}/product/${props.data._id}`}
                 quote={`${props.data.category} - ${
                   props.data.judul
                 } - dengan harga Rp ${fCurrency(
@@ -96,7 +96,7 @@ export default function CardDetailProduct(props) {
                 } - dengan harga Rp ${fCurrency(
                   props.data.price
                 )} di website maison.com`}
-                url={`http://localhost:3001/product/${props.data._id}`}
+                url={`${process.env.REACT_APP_DOMAIN_NAME}/product/${props.data._id}`}
                 hashtags={["#maison", "cari-rumah"]}
               >
                 <TwitterIcon size={32} round={true} />

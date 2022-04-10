@@ -1,11 +1,11 @@
-import axios from "axios";
+import api from "../../../utils/api";
 
-axios.defaults.withCredentials = true;
+api.defaults.withCredentials = true;
 
 export const RegisterWithEmail = (data) => (dispatch) => {
   return new Promise((resolve, reject) => {
-    axios
-      .post(`http://localhost:8080/auth/register`, data)
+    api
+      .post(`/auth/register`, data)
       .then((response) => {
         dispatch({
           type: "LOGIN",
@@ -25,8 +25,8 @@ export const RegisterWithEmail = (data) => (dispatch) => {
 
 export const LoginWithEmail = (data) => (dispatch) => {
   return new Promise((resolve, reject) => {
-    axios
-      .post(`http://localhost:8080/auth/login`, data)
+    api
+      .post(`/auth/login`, data)
       .then((response) => {
         dispatch({
           type: "LOGIN",
@@ -47,8 +47,8 @@ export const LoginWithEmail = (data) => (dispatch) => {
 
 export const getUser = (id) => (dispatch) => {
   return new Promise((resolve, reject) => {
-    axios
-      .get(`http://localhost:8080/auth/user/${id}`)
+    api
+      .get(`/auth/user/${id}`)
       .then((response) => {
         resolve(response);
       })
@@ -60,8 +60,8 @@ export const getUser = (id) => (dispatch) => {
 
 export const updateUser = (user, id) => (dispatch) => {
   return new Promise((resolve, reject) => {
-    axios
-      .patch(`http://localhost:8080/auth/user/${id}`, user)
+    api
+      .patch(`/auth/user/${id}`, user)
       .then((response) => {
         resolve(response);
       })
@@ -73,8 +73,8 @@ export const updateUser = (user, id) => (dispatch) => {
 
 export const profile = () => (dispatch) => {
   return new Promise((resolve, reject) => {
-    axios
-      .get(`http://localhost:8080/auth/profile`, {
+    api
+      .get(`/auth/profile`, {
         headers: {
           Authorization: `Bearer ${window.localStorage.getItem("token")}`,
         },
@@ -89,8 +89,8 @@ export const profile = () => (dispatch) => {
 };
 
 export const refreshToken = () => (dispatch) => {
-  axios
-    .get(`http://localhost:8080/token`)
+  api
+    .get(`/token`)
     .then((response) => {
       window.localStorage.setItem("token", response.data.token);
       dispatch({
@@ -105,8 +105,8 @@ export const refreshToken = () => (dispatch) => {
 
 export const logout = () => (dispatch) => {
   return new Promise((resolve, reject) => {
-    axios
-      .delete(`http://localhost:8080/logout`)
+    api
+      .delete(`/logout`)
       .then((response) => {
         window.localStorage.removeItem("token");
         dispatch({

@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../../../utils/api";
 
 export const addProduct = (data) => (dispatch) => {
   dispatch({
@@ -6,8 +6,8 @@ export const addProduct = (data) => (dispatch) => {
     value: true,
   });
   return new Promise((resolve, reject) => {
-    axios
-      .post(`http://localhost:8080/product`, data)
+    api
+      .post(`/product`, data)
       .then((response) => {
         dispatch({
           type: "LOADING",
@@ -27,8 +27,8 @@ export const addProduct = (data) => (dispatch) => {
 
 export const getProducts = () => (dispatch) => {
   return new Promise((resolve, reject) => {
-    axios
-      .get(`http://localhost:8080/products`)
+    api
+      .get(`/products`)
       .then((response) => {
         resolve(response);
       })
@@ -40,8 +40,8 @@ export const getProducts = () => (dispatch) => {
 
 export const getProduct = (id) => (dispatch) => {
   return new Promise((resolve, reject) => {
-    axios
-      .get(`http://localhost:8080/product/${id}`)
+    api
+      .get(`/product/${id}`)
       .then((response) => {
         resolve(response);
       })
@@ -53,8 +53,8 @@ export const getProduct = (id) => (dispatch) => {
 
 export const getProductByUid = (uid) => (dispatch) => {
   return new Promise((resolve, reject) => {
-    axios
-      .get(`http://localhost:8080/products/uid/${uid}`)
+    api
+      .get(`/products/uid/${uid}`)
       .then((response) => {
         resolve(response);
       })
@@ -70,8 +70,8 @@ export const editProduct = (id, product) => (dispatch) => {
     value: true,
   });
   return new Promise((resolve, reject) => {
-    axios
-      .patch(`http://localhost:8080/product/${id}`, product, {
+    api
+      .patch(`/product/${id}`, product, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -95,8 +95,8 @@ export const editProduct = (id, product) => (dispatch) => {
 
 export const deleteProduct = (id) => (dispatch) => {
   return new Promise((resolve, reject) => {
-    axios
-      .delete(`http://localhost:8080/product/${id}`)
+    api
+      .delete(`/product/${id}`)
       .then((response) => {
         resolve(response);
       })
